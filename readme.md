@@ -1,4 +1,4 @@
- 
+ [Live Link](https://sabinamarium.github.io/B12-A5-Emegency-Hotline/)
 
 
 1.What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
