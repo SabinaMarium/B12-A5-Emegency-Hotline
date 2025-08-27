@@ -242,45 +242,54 @@
 
   <!-- JS -->
   <script>
-    // Heart counter
-    let favCount = 0;
-    function toggleFavorite(btn) {
-      const isActive = btn.classList.contains("text-red-500");
-      if (isActive) {
-        favCount--;
-        btn.classList.remove("text-red-500");
-        btn.classList.add("text-gray-400");
-      } else {
-        favCount++;
-        btn.classList.add("text-red-500");
-        btn.classList.remove("text-gray-400");
-      }
-      document.getElementById("heartCount").textContent = favCount;
+  // Heart counter
+  let favCount = 0;
+  let copyCount = 0;
+
+  function toggleFavorite(btn) {
+    const isActive = btn.classList.contains("text-red-500");
+    if (isActive) {
+      favCount--;
+      btn.classList.remove("text-red-500");
+      btn.classList.add("text-gray-400");
+    } else {
+      favCount++;
+      btn.classList.add("text-red-500");
+      btn.classList.remove("text-gray-400");
     }
+    document.getElementById("heartCount").textContent = favCount;
+  }
 
-    // Copy number
-    function copyNumber(num) {
-      navigator.clipboard.writeText(num);
-      alert("Number copied: " + num);
+  // Copy number
+  function copyNumber(num) {
+    navigator.clipboard.writeText(num);
+    copyCount++;
+    alert("Number copied: " + num);
+    updateCopyCount();
+  }
+
+  function updateCopyCount() {
+    const button = document.querySelector('.bg-green-500.text-white.px-4.py-1.rounded-full');
+    if (button) {
+      button.textContent = copyCount + " Copy";
     }
+  }
 
-    // Call history
-    function makeCall(service, number) {
-  alert(`Calling ${service} at ${number}...`);
+  // Call history
+  function makeCall(service, number) {
+    alert(`Calling ${service} at ${number}...`);
 
-  const history = document.getElementById("callHistory");
-  const time = new Date().toLocaleTimeString();
-  const entry = document.createElement("div");
-  entry.className = "flex justify-between items-center bg-gray-100 p-2 rounded-lg";
-  entry.innerHTML = `<div><p class="font-semibold">${service}</p><p class="text-gray-600 text-sm">${number}</p></div><span class="text-xs text-gray-500">${time}</span>`;
-  history.prepend(entry);
-}
+    const history = document.getElementById("callHistory");
+    const time = new Date().toLocaleTimeString();
+    const entry = document.createElement("div");
+    entry.className = "flex justify-between items-center bg-gray-100 p-2 rounded-lg";
+    entry.innerHTML = `<div><p class="font-semibold">${service}</p><p class="text-gray-600 text-sm">${number}</p></div><span class="text-xs text-gray-500">${time}</span>`;
+    history.prepend(entry);
+  }
 
-
-    function clearHistory() {
-      document.getElementById("callHistory").innerHTML = "";
-    }
-  </script>
-
+  function clearHistory() {
+    document.getElementById("callHistory").innerHTML = "";
+  }
+</script>
 </body>
 </html>
