@@ -1,11 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emergency Hotline</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency Service Directory</title>
+  <!-- Google Font -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    
+<body class="bg-gray-100 font-sans">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md p-4 flex justify-between items-center">
+    <div class="flex items-center gap-2">
+      <img src="assets/logo.png" class="w-10 h-10" alt="logo">
+      <span class="font-bold text-lg text-green-700">Emergency <br> Service</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <div class="flex items-center gap-1 text-red-500"><span>0</span> <img src="assets/heart.png" class="w-5 h-5" alt=""></div>
+      <div class="flex items-center gap-1 text-green-600"><span>100</span> <img src="assets/coin.png" class="w-5 h-5" alt=""></div>
+      <button class="bg-green-500 text-white px-4 py-1 rounded-full">2 Copy</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-green-700 to-green-600 text-center text-white py-10 relative">
+    <img src="assets/logo-dark.png" class="w-20 mx-auto mb-4" alt="gov-logo">
+    <h1 class="text-2xl font-bold">Emergency Service Directory</h1>
+    <p class="mt-2 text-sm">Government Emergency Services at Your Fingertip – A Project by Government of the People's Republic of Bangladesh</p>
+  </section>
+
+  <!-- Main Section -->
+  <main class="container mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+    <!-- Emergency Cards -->
+    <div class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Card Template -->
+      <div class="bg-white shadow rounded-xl p-4 relative">
+        <div class="absolute top-3 right-3 text-gray-400">♡</div>
+        <div class="flex items-center gap-2">
+          <div class="bg-red-100 p-2 rounded-xl"><img src="assets/emergency.png " alt=""></div>
+          <div>
+            <h3 class="font-semibold">National Emergency Number</h3>
+            <p class="text-sm text-gray-500">National Emergency</p>
+          </div>
+        </div>
+        <p class="mt-4 text-2xl font-bold">999</p>
+        <p class="text-xs bg-gray-100 inline-block px-2 py-1 rounded-md mt-1">All</p>
+        <div class="mt-4 flex gap-2">
+          <button onclick="copyNumber('999')" class="w-1/2 border px-2 py-1 rounded-md">📋 Copy</button>
+          <a href="tel:999" onclick="addToHistory('Called','999')" class="w-1/2 bg-green-500 text-white px-2 py-1 rounded-md text-center">📞 Call</a>
+        </div>
+      </div>
+
+      <!-- Police -->
+      <div class="bg-white shadow rounded-xl p-4 relative">
+        <div class="absolute top-3 right-3 text-gray-400">♡</div>
+        <div class="flex items-center gap-2">
+          <div class="bg-blue-100 p-2 rounded-xl">👮</div>
+          <div>
+            <h3 class="font-semibold">Police Helpline Number</h3>
+            <p class="text-sm text-gray-500">Police</p>
+          </div>
+        </div>
+        <p class="mt-4 text-2xl font-bold">999</p>
+        <p class="text-xs bg-gray-100 inline-block px-2 py-1 rounded-md mt-1">Police</p>
+        <div class="mt-4 flex gap-2">
+          <button onclick="copyNumber('999')" class="w-1/2 border px-2 py-1 rounded-md">📋 Copy</button>
+          <a href="tel:999" onclick="addToHistory('Called','999')" class="w-1/2 bg-green-500 text-white px-2 py-1 rounded-md text-center">📞 Call</a>
+        </div>
+      </div>
+
+      <!-- Fire Service -->
+      <div class="bg-white shadow rounded-xl p-4 relative">
+        <div class="absolute top-3 right-3 text-gray-400">♡</div>
+        <div class="flex items-center gap-2">
+          <div class="bg-red-200 p-2 rounded-xl">🔥</div>
+          <div>
+            <h3 class="font-semibold">Fire Service Number</h3>
+            <p class="text-sm text-gray-500">Fire Service</p>
+          </div>
+        </div>
+        <p class="mt-4 text-2xl font-bold">999</p>
+        <p class="text-xs bg-gray-100 inline-block px-2 py-1 rounded-md mt-1">Fire</p>
+        <div class="mt-4 flex gap-2">
+          <button onclick="copyNumber('999')" class="w-1/2 border px-2 py-1 rounded-md">📋 Copy</button>
+          <a href="tel:999" onclick="addToHistory('Called','999')" class="w-1/2 bg-green-500 text-white px-2 py-1 rounded-md text-center">📞 Call</a>
+        </div>
+      </div>
+
+      <!-- Ambulance -->
+      <div class="bg-white shadow rounded-xl p-4 relative">
+        <div class="absolute top-3 right-3 text-gray-400">♡</div>
+        <div class="flex items-center gap-2">
+          <div class="bg-pink-100 p-2 rounded-xl">🚑</div>
+          <div>
+            <h3 class="font-semibold">Ambulance Service</h3>
+            <p class="text-sm text-gray-500">Ambulance</p>
+          </div>
+        </div>
+        <p class="mt-4 text-2xl font-bold">1994-999999</p>
+        <p class="text-xs bg-gray-100 inline-block px-2 py-1 rounded-md mt-1">Health</p>
+        <div class="mt-4 flex gap-2">
+          <button onclick="copyNumber('1994-999999')" class="w-1/2 border px-2 py-1 rounded-md">📋 Copy</button>
+          <a href="tel:1994999999" onclick="addToHistory('Called','1994-999999')" class="w-1/2 bg-green-500 text-white px-2 py-1 rounded-md text-center">📞 Call</a>
+        </div>
+      </div>
+
+      <!-- Women & Child -->
+      <div class="bg-white shadow rounded-xl p-4 relative">
+        <div class="absolute top-3 right-3 text-gray-400">♡</div>
+        <div class="flex items-center gap-2">
+          <div class="bg-red-100 p-2 rounded-xl">👩‍👧</div>
+          <div>
+            <h3 class="font-semibold">Women & Child Helpline</h3>
+            <p class="text-sm text-gray-500">Women & Child Helpline</p>
+          </div>
+        </div>
+        <p class="mt-4 text-2xl font-bold">109</p>
+        <p class="text-xs bg-gray-100 inline-block px-2 py-1 rounded-md mt-1">Help</p>
+        <div class="mt-4 flex gap-2">
+          <button onclick="copyNumber('109')" class="w-1/2 border px-2 py-1 rounded-md">📋 Copy</button>
+          <a href="tel:109" onclick="addToHistory('Called','109')" class="w-1/2 bg-green-500 text-white px-2 py-1 rounded-md text-center">📞 Call</a>
+        </div>
+      </div>
+
+      <!-- Anti-Corruption -->
+      <div class="bg-white shadow rounded-xl p-4 relative">
+        <div class="absolute top-3 right-3 text-gray-400">♡</div>
+        <div class="flex items-center gap-2">
+          <div class="bg-red-100 p-2 rounded-xl">⚖️</div>
+          <div>
+            <h3 class="font-semibold">Anti-Corruption Helpline</h3>
+            <p class="text-sm text-gray-500">Anti-Corruption</p>
+          </div>
+        </div>
+        <p class="mt-4 text-2xl font-bold">106</p>
+        <p class="text-xs bg-gray-100 inline-block px-2 py-1 rounded-md mt-1">Govt.</p>
+        <div class="mt-4 flex gap-2">
+          <button onclick="copyNumber('106')" class="w-1/2 border px-2 py-1 rounded-md">📋 Copy</button>
+          <a href="tel:106" onclick="addToHistory('Called','106')" class="w-1/2 bg-green-500 text-white px-2 py-1 rounded-md text-center">📞 Call</a>
+        </div>
+      </div>
+
+      <!-- Electricity -->
+      <div class="bg-white shadow rounded-xl p-4 relative">
+        <div class="absolute top-3 right-3 text-gray-400">♡</div>
+        <div class="flex items-center gap-2">
+          <div class="bg-yellow-100 p-2 rounded-xl">💡</div>
+          <div>
+            <h3 class="font-semibold">Electricity Helpline</h3>
+            <p class="text-sm text-gray-500">Electricity Outage</p>
+          </div>
+        </div>
+        <p class="mt-4 text-2xl font-bold">16216</p>
+        <p class="text-xs bg-gray-100 inline-block px-2 py-1 rounded-md mt-1">Electricity</p>
+        <div class="mt-4 flex gap-2">
+          <button onclick="copyNumber('16216')" class="w-1/2 border px-2 py-1 rounded-md">📋 Copy</button>
+          <a href="tel:16216" onclick="addToHistory('Called','16216')" class="w-1/2 bg-green-500 text-white px-2 py-1 rounded-md text-center">📞 Call</a>
+        </div>
+      </div>
+
+      <!-- Brac -->
+      <div class="bg-white shadow rounded-xl p-4 relative">
+        <div class="absolute top-3 right-3 text-gray-400">♡</div>
+        <div class="flex items-center gap-2">
+          <div class="bg-red-100 p-2 rounded-xl">🏥</div>
+          <div>
+            <h3 class="font-semibold">Brac Helpline</h3>
+            <p class="text-sm text-gray-500">Brac</p>
+          </div>
+        </div>
+        <p class="mt-4 text-2xl font-bold">16445</p>
+        <p class="text-xs bg-gray-100 inline-block px-2 py-1 rounded-md mt-1">NGO</p>
+        <div class="mt-4 flex gap-2">
+          <button onclick="copyNumber('16445')" class="w-1/2 border px-2 py-1 rounded-md">📋 Copy</button>
+          <a href="tel:16445" onclick="addToHistory('Called','16445')" class="w-1/2 bg-green-500 text-white px-2 py-1 rounded-md text-center">📞 Call</a>
+        </div>
+      </div>
+
+      <!-- Bangladesh Railway -->
+      <div class="bg-white shadow rounded-xl p-4 relative">
+        <div class="absolute top-3 right-3 text-gray-400">♡</div>
+        <div class="flex items-center gap-2">
+          <div class="bg-green-100 p-2 rounded-xl">🚆</div>
+          <div>
+            <h3 class="font-semibold">Bangladesh Railway Helpline</h3>
+            <p class="text-sm text-gray-500">Bangladesh Railway</p>
+          </div>
+        </div>
+        <p class="mt-4 text-2xl font-bold">163</p>
+        <p class="text-xs bg-gray-100 inline-block px-2 py-1 rounded-md mt-1">Travel</p>
+        <div class="mt-4 flex gap-2">
+          <button onclick="copyNumber('163')" class="w-1/2 border px-2 py-1 rounded-md">📋 Copy</button>
+          <a href="tel:163" onclick="addToHistory('Called','163')" class="w-1/2 bg-green-500 text-white px-2 py-1 rounded-md text-center">📞 Call</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Call History -->
+    <aside class="bg-white shadow rounded-xl p-4">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="font-bold">📞 Call History</h2>
+        <button onclick="clearHistory()" class="bg-green-500 text-white px-3 py-1 rounded-md">Clear</button>
+      </div>
+      <ul id="callHistory" class="space-y-2 text-sm text-gray-600">
+        <!-- History items will appear here -->
+      </ul>
+    </aside>
+  </main>
+
+  <!-- JavaScript -->
+  <script>
+    function copyNumber(num) {
+      navigator.clipboard.writeText(num);
+      alert("Number copied: " + num);
+      addToHistory("Copied", num);
+    }
+
+    function addToHistory(action, num) {
+      const list = document.getElementById("callHistory");
+      const li = document.createElement("li");
+      li.textContent = action + ": " + num + " - " + new Date().toLocaleTimeString();
+      list.prepend(li);
+    }
+
+    function clearHistory() {
+      document.getElementById("callHistory").innerHTML = "";
+    }
+  </script>
 </body>
 </html>
