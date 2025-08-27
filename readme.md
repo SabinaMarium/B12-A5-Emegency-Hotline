@@ -21,4 +21,4 @@ ans:It is a pattern that improves performance in dynamic content and it enhances
 
 5.What is the difference between preventDefault() and stopPropagation() methods?
 ans: preventDefault()=This method prevents the default action associated with an event from occurring. 
-stopPropagation()=
+stopPropagation()=This method prevents the event from bubbling up.
