@@ -1,295 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emergency Service Directory</title>
-  <!-- Google Font -->
- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100" style="font-family: 'Hind Madurai', sans-serif;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emergency Service Directory</title>
+    <link rel="shortcut icon" href="assets/emergency.png" type="image/x-icon">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100" style="font-family: 'Hind Madurai', sans-serif">
+    <!-- Navbar -->
+    <nav class="bg-white shadow p-4 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <img src="assets/logo.png" class="w-14 h-14" alt="Logo" />
+        <span class="font-bold text-xl text-green-900"
+          >Emergency <br />
+          Service</span
+        >
+      </div>
 
-  <!-- Navbar -->
-  <nav class="bg-white shadow p-4 flex justify-between items-center">
-    <div class="flex items-center gap-2">
-      <img src="assets/logo.png" 
-           class="w-14 h-14" alt="Logo">
-      <span class="font-bold text-xl text-green-900">Emergency <br> Service</span>
+      <!-- Right Side -->
+      <div class="flex items-center gap-4">
+        <div class="flex items-center gap-1 text-red-500 font-semibold">
+          <span id="heartCount">0</span>
+          <img src="assets/heart.png" class="w-5 h-5" alt="" />
+        </div>
+        <div class="flex items-center gap-1 text-green-600 font-semibold">
+          100 <img src="assets/coin.png" class="w-5 h-5" alt="" />
+        </div>
+        <button class="bg-green-500 text-white px-4 py-1 rounded-full">
+          2 Copy
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section
+      class="text-center text-white py-8"
+      style="
+        background: linear-gradient(
+          to right,
+          #013223 0%,
+          #005c40 40%,
+          #006747 50%,
+          #013223 100%
+        );
+      "
+    >
+      <img
+        src="assets/logo-dark.png"
+        class="mx-auto w-14 h-14 mb-2"
+        alt="BD Emblem"
+      />
+      <h1 class="text-2xl font-bold">Emergency Service Directory</h1>
+      <p>
+        Government Emergency Services at Your Fingertip – A Project by
+        Government of Bangladesh
+      </p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="flex flex-col lg:flex-row gap-4 p-6">
+      <!-- Cards Section -->
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 flex-1">
+        <!-- National Emergency-->
+        <div class="bg-white shadow rounded-2xl p-4 relative">
+          <button
+            onclick="toggleFavorite(this)"
+            class="absolute top-3 right-3 text-gray-400 hover:text-red-500"
+          >
+            ❤️
+          </button>
+          <div class="flex items-center gap-3">
+            <div class="bg-pink-100 p-3 rounded-xl">
+              <img src="assets/emergency.png" class="w-7 h-7" alt="" />
+            </div>
+            <div>
+              <h2 class="font-bold">National Emergency Number</h2>
+              <p class="text-gray-500 text-sm">National Emergency</p>
+            </div>
+          </div>
+          <p class="text-2xl font-bold mt-3">999</p>
+          <span
+            class="inline-block bg-gray-200 text-gray-600 text-sm px-3 py-1 rounded-full mt-2"
+            >All</span
+          >
+          <div class="flex gap-2 mt-4">
+            <button
+              onclick="copyNumber('999')"
+              class="flex-1 border rounded-lg py-2"
+            >
+              📋 Copy
+            </button>
+            <button
+              onclick="makeCall('National Emergency Number','999')"
+              class="flex-1 bg-green-500 text-white rounded-lg py-2"
+            >
+              📞 Call
+            </button>
+          </div>
+        </div>
+
+        <!-- Police -->
+        <div class="bg-white shadow rounded-2xl p-4 relative">
+          <button
+            onclick="toggleFavorite(this)"
+            class="absolute top-3 right-3 text-gray-400 hover:text-red-500"
+          >
+            ❤️
+          </button>
+          <div class="flex items-center gap-3">
+            <div class="bg-blue-100 p-3 rounded-xl">
+              <img src="assets/police.png" class="w-7 h-7" alt="" />
+            </div>
+            <div>
+              <h2 class="font-bold">Police Helpline Number</h2>
+              <p class="text-gray-500 text-sm">Police</p>
+            </div>
+          </div>
+          <p class="text-2xl font-bold mt-3">999</p>
+          <span
+            class="inline-block bg-gray-200 text-gray-600 text-sm px-3 py-1 rounded-full mt-2"
+            >Police</span
+          >
+          <div class="flex gap-2 mt-4">
+            <button
+              onclick="copyNumber('999')"
+              class="flex-1 border rounded-lg py-2"
+            >
+              📋 Copy
+            </button>
+            <button
+              onclick="makeCall('Police Helpline Number','999')"
+              class="flex-1 bg-green-500 text-white rounded-lg py-2"
+            >
+              📞 Call
+            </button>
+          </div>
+        </div>
+
+        <!-- Fire Service -->
+        <div class="bg-white shadow rounded-2xl p-4 relative">
+          <button
+            onclick="toggleFavorite(this)"
+            class="absolute top-3 right-3 text-gray-400 hover:text-red-500"
+          >
+            ❤️
+          </button>
+          <div class="flex items-center gap-3">
+            <div class="bg-red-100 p-3 rounded-xl">
+              <img src="assets/fire-service.png" class="w-7 h-7" alt="" />
+            </div>
+            <div>
+              <h2 class="font-bold">Fire Service Number</h2>
+              <p class="text-gray-500 text-sm">Fire Service</p>
+            </div>
+          </div>
+          <p class="text-2xl font-bold mt-3">999</p>
+          <span
+            class="inline-block bg-gray-200 text-gray-600 text-sm px-3 py-1 rounded-full mt-2"
+            >Fire</span
+          >
+          <div class="flex gap-2 mt-4">
+            <button
+              onclick="copyNumber('999')"
+              class="flex-1 border rounded-lg py-2"
+            >
+              📋 Copy
+            </button>
+            <button
+              onclick="makeCall('Fire Service Number','999')"
+              class="flex-1 bg-green-500 text-white rounded-lg py-2"
+            >
+              📞 Call
+            </button>
+          </div>
+        </div>
+
+        <!-- Ambulance -->
+        <div class="bg-white shadow rounded-2xl p-4 relative">
+          <button
+            onclick="toggleFavorite(this)"
+            class="absolute top-3 right-3 text-gray-400 hover:text-red-500"
+          >
+            ❤️
+          </button>
+          <div class="flex items-center gap-3">
+            <div class="bg-green-100 p-3 rounded-xl">
+              <img src="assets/ambulance.png" class="w-7 h-7" alt="" />
+            </div>
+            <div>
+              <h2 class="font-bold">Ambulance Service</h2>
+              <p class="text-gray-500 text-sm">Ambulance</p>
+            </div>
+          </div>
+          <p class="text-2xl font-bold mt-3">1994-999999</p>
+          <span
+            class="inline-block bg-gray-200 text-gray-600 text-sm px-3 py-1 rounded-full mt-2"
+            >Health</span
+          >
+          <div class="flex gap-2 mt-4">
+            <button
+              onclick="copyNumber('1994-999999')"
+              class="flex-1 border rounded-lg py-2"
+            >
+              📋 Copy
+            </button>
+            <button
+              onclick="makeCall('Ambulance Service','1994-999999')"
+              class="flex-1 bg-green-500 text-white rounded-lg py-2"
+            >
+              📞 Call
+            </button>
+          </div>
+        </div>
+
+        <!-- Women & Child -->
+        <div class="bg-white shadow rounded-2xl p-4 relative">
+          <button
+            onclick="toggleFavorite(this)"
+            class="absolute top-3 right-3 text-gray-400 hover:text-red-500"
+          >
+            ❤️
+          </button>
+          <div class="flex items-center gap-3">
+            <div class="bg-pink-200 p-3 rounded-xl">
+              <img src="assets/emergency.png" class="w-7 h-7" alt="" />
+            </div>
+            <div>
+              <h2 class="font-bold">Women & Child Helpline</h2>
+              <p class="text-gray-500 text-sm">Helpline</p>
+            </div>
+          </div>
+          <p class="text-2xl font-bold mt-3">109</p>
+          <span
+            class="inline-block bg-gray-200 text-gray-600 text-sm px-3 py-1 rounded-full mt-2"
+            >Help</span
+          >
+          <div class="flex gap-2 mt-4">
+            <button
+              onclick="copyNumber('109')"
+              class="flex-1 border rounded-lg py-2"
+            >
+              📋 Copy
+            </button>
+            <button
+              onclick="makeCall('Women & Child Helpline','109')"
+              class="flex-1 bg-green-500 text-white rounded-lg py-2"
+            >
+              📞 Call
+            </button>
+          </div>
+        </div>
+
+        <!-- Anti-Corruption -->
+        <div class="bg-white shadow rounded-2xl p-4 relative">
+          <button
+            onclick="toggleFavorite(this)"
+            class="absolute top-3 right-3 text-gray-400 hover:text-red-500"
+          >
+            ❤️
+          </button>
+          <div class="flex items-center gap-3">
+            <div class="bg-yellow-100 p-3 rounded-xl">
+              <img src="assets/emergency.png" class="w-7 h-7" alt="" />
+            </div>
+            <div>
+              <h2 class="font-bold">Anti-Corruption Helpline</h2>
+              <p class="text-gray-500 text-sm">Govt.</p>
+            </div>
+          </div>
+          <p class="text-2xl font-bold mt-3">106</p>
+          <span
+            class="inline-block bg-gray-200 text-gray-600 text-sm px-3 py-1 rounded-full mt-2"
+            >Govt.</span
+          >
+          <div class="flex gap-2 mt-4">
+            <button
+              onclick="copyNumber('106')"
+              class="flex-1 border rounded-lg py-2"
+            >
+              📋 Copy
+            </button>
+            <button
+              onclick="makeCall('Anti-Corruption Helpline','106')"
+              class="flex-1 bg-green-500 text-white rounded-lg py-2"
+            >
+              📞 Call
+            </button>
+          </div>
+        </div>
+
+        <!-- Electricity -->
+        <div class="bg-white shadow rounded-2xl p-4 relative">
+          <button
+            onclick="toggleFavorite(this)"
+            class="absolute top-3 right-3 text-gray-400 hover:text-red-500"
+          >
+            ❤️
+          </button>
+          <div class="flex items-center gap-3">
+            <div class="bg-gray-200 p-3 rounded-xl">
+              <img src="assets/emergency.png" class="w-7 h-7" alt="" />
+            </div>
+            <div>
+              <h2 class="font-bold">Electricity Helpline</h2>
+              <p class="text-gray-500 text-sm">Outage</p>
+            </div>
+          </div>
+          <p class="text-2xl font-bold mt-3">16216</p>
+          <span
+            class="inline-block bg-gray-200 text-gray-600 text-sm px-3 py-1 rounded-full mt-2"
+            >Electricity</span
+          >
+          <div class="flex gap-2 mt-4">
+            <button
+              onclick="copyNumber('16216')"
+              class="flex-1 border rounded-lg py-2"
+            >
+              📋 Copy
+            </button>
+            <button
+              onclick="makeCall('Electricity Helpline','16216')"
+              class="flex-1 bg-green-500 text-white rounded-lg py-2"
+            >
+              📞 Call
+            </button>
+          </div>
+        </div>
+
+        <!-- Brac -->
+        <div class="bg-white shadow rounded-2xl p-4 relative">
+          <button
+            onclick="toggleFavorite(this)"
+            class="absolute top-3 right-3 text-gray-400 hover:text-red-500"
+          >
+            ❤️
+          </button>
+          <div class="flex items-center gap-3">
+            <div class="bg-purple-200 p-3 rounded-xl">
+              <img src="assets/emergency.png" class="w-7 h-7" alt="" />
+            </div>
+            <div>
+              <h2 class="font-bold">Brac Helpline</h2>
+              <p class="text-gray-500 text-sm">NGO</p>
+            </div>
+          </div>
+          <p class="text-2xl font-bold mt-3">16445</p>
+          <span
+            class="inline-block bg-gray-200 text-gray-600 text-sm px-3 py-1 rounded-full mt-2"
+            >NGO</span
+          >
+          <div class="flex gap-2 mt-4">
+            <button
+              onclick="copyNumber('16445')"
+              class="flex-1 border rounded-lg py-2"
+            >
+              📋 Copy
+            </button>
+            <button
+              onclick="makeCall('Brac Helpline','16445')"
+              class="flex-1 bg-green-500 text-white rounded-lg py-2"
+            >
+              📞 Call
+            </button>
+          </div>
+        </div>
+
+        <!-- Railway -->
+        <div class="bg-white shadow rounded-2xl p-4 relative">
+          <button
+            onclick="toggleFavorite(this)"
+            class="absolute top-3 right-3 text-gray-400 hover:text-red-500"
+          >
+            ❤️
+          </button>
+          <div class="flex items-center gap-3">
+            <div class="bg-orange-200 p-3 rounded-xl">
+              <img src="assets/emergency.png" class="w-7 h-7" alt="" />
+            </div>
+            <div>
+              <h2 class="font-bold">Bangladesh Railway Helpline</h2>
+              <p class="text-gray-500 text-sm">Railway</p>
+            </div>
+          </div>
+          <p class="text-2xl font-bold mt-3">163</p>
+          <span
+            class="inline-block bg-gray-200 text-gray-600 text-sm px-3 py-1 rounded-full mt-2"
+            >Travel</span
+          >
+          <div class="flex gap-2 mt-4">
+            <button
+              onclick="copyNumber('163')"
+              class="flex-1 border rounded-lg py-2"
+            >
+              📋 Copy
+            </button>
+            <button
+              onclick="makeCall('Bangladesh Railway Helpline','163')"
+              class="flex-1 bg-green-500 text-white rounded-lg py-2"
+            >
+              📞 Call
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call History Section -->
+      <div class="w-full lg:w-80 bg-white shadow rounded-2xl p-4">
+        <div class="flex justify-between items-center mb-3">
+          <h2 class="font-semibold flex items-center gap-1">⏰ Call History</h2>
+          <button
+            onclick="clearHistory()"
+            class="bg-green-500 text-white px-4 py-1 rounded-full"
+          >
+            Clear
+          </button>
+        </div>
+        <div
+          id="callHistory"
+          class="space-y-2 text-sm max-h-[500px] overflow-y-auto"
+        >
+          <!-- Calls appear here -->
+        </div>
+      </div>
     </div>
 
-    <!-- Right Side -->
-    <div class="flex items-center gap-4">
-      <div class="flex items-center gap-1 text-red-500 font-semibold">
-        <span id="heartCount">0</span> <img src="assets/heart.png" class="w-5 h-5" alt="">
-      </div>
-      <div class="flex items-center gap-1 text-green-600 font-semibold">
-        100 <img src="assets/coin.png"class="w-5 h-5" alt="">
-      </div>
-      <button class="bg-green-500 text-white px-4 py-1 rounded-full">2 Copy</button>
-    </div>
-  </nav>
+    <!-- JS -->
+    <script>
+      // Heart counter
+      let favCount = 0;
+      let copyCount = 0;
 
-  <!-- Hero -->
-  <section class="text-center text-white py-8" style="background: linear-gradient(to right, #013223 0%, #005C40 40%, #006747 50%, #013223 100%);">
-    <img src="assets/logo-dark.png" 
-         class="mx-auto w-14 h-14 mb-2" alt="BD Emblem">
-    <h1 class="text-2xl font-bold">Emergency Service Directory</h1>
-    <p>Government Emergency Services at Your Fingertip – A Project by Government of Bangladesh</p>
-  </section>
+      function toggleFavorite(btn) {
+        const isActive = btn.classList.contains("text-red-500");
+        if (isActive) {
+          favCount--;
+          btn.classList.remove("text-red-500");
+          btn.classList.add("text-gray-400");
+        } else {
+          favCount++;
+          btn.classList.add("text-red-500");
+          btn.classList.remove("text-gray-400");
+        }
+        document.getElementById("heartCount").textContent = favCount;
+      }
 
-  <!-- Main Content -->
-  <div class="flex flex-col lg:flex-row gap-4 p-6">
+      // Copy number
+      function copyNumber(num) {
+        navigator.clipboard.writeText(num);
+        copyCount++;
+        alert("Number copied: " + num);
+        updateCopyCount();
+      }
 
-    <!-- Cards Section -->
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 flex-1">
-      <!-- National Emergency-->
-      <div class="bg-white shadow rounded-2xl p-4 relative">
-        <button onclick="toggleFavorite(this)" 
-                class="absolute top-3 right-3 text-gray-400 hover:text-red-500">❤️</button>
-        <div class="flex items-center gap-3">
-          <div class="bg-pink-100 p-3 rounded-xl"><img src="assets/emergency.png" class="w-7 h-7" alt="">
-          </div>
-          <div>
-            <h2 class="font-bold">National Emergency Number</h2>
-            <p class="text-gray-500 text-sm">National Emergency</p>
-          </div>
-        </div>
-        <p class="text-2xl font-bold mt-3">999</p>
-        <span class="inline-block bg-gray-200 text-gray-600 text-sm px-3 py-1 rounded-full mt-2">All</span>
-        <div class="flex gap-2 mt-4">
-          <button onclick="copyNumber('999')" class="flex-1 border rounded-lg py-2">📋 Copy</button>
-          <button onclick="makeCall('National Emergency Number','999')" 
-                  class="flex-1 bg-green-500 text-white rounded-lg py-2">📞 Call</button>
-        </div>
-      </div>
+      function updateCopyCount() {
+        const button = document.querySelector(
+          ".bg-green-500.text-white.px-4.py-1.rounded-full"
+        );
+        if (button) {
+          button.textContent = copyCount + " Copy";
+        }
+      }
 
-      <!-- Police -->
-      <div class="bg-white shadow rounded-2xl p-4 relative">
-        <button onclick="toggleFavorite(this)" 
-                class="absolute top-3 right-3 text-gray-400 hover:text-red-500">❤️</button>
-        <div class="flex items-center gap-3">
-          <div class="bg-blue-100 p-3 rounded-xl"><img src="assets/police.png" class="w-7 h-7" alt=""></div>
-          <div>
-            <h2 class="font-bold">Police Helpline Number</h2>
-            <p class="text-gray-500 text-sm">Police</p>
-          </div>
-        </div>
-        <p class="text-2xl font-bold mt-3">999</p>
-        <span class="inline-block bg-gray-200 text-gray-600 text-sm px-3 py-1 rounded-full mt-2">Police</span>
-        <div class="flex gap-2 mt-4">
-          <button onclick="copyNumber('999')" class="flex-1 border rounded-lg py-2">📋 Copy</button>
-          <button onclick="makeCall('Police Helpline Number','999')" 
-                  class="flex-1 bg-green-500 text-white rounded-lg py-2">📞 Call</button>
-        </div>
-      </div>
+      // Call history
+      function makeCall(service, number) {
+        alert(`Calling ${service} at ${number}...`);
 
-      <!-- Fire Service -->
-      <div class="bg-white shadow rounded-2xl p-4 relative">
-        <button onclick="toggleFavorite(this)" 
-                class="absolute top-3 right-3 text-gray-400 hover:text-red-500">❤️</button>
-        <div class="flex items-center gap-3">
-          <div class="bg-red-100 p-3 rounded-xl"><img src="assets/fire-service.png" class="w-7 h-7" alt=""></div>
-          <div>
-            <h2 class="font-bold">Fire Service Number</h2>
-            <p class="text-gray-500 text-sm">Fire Service</p>
-          </div>
-        </div>
-        <p class="text-2xl font-bold mt-3">999</p>
-        <span class="inline-block bg-gray-200 text-gray-600 text-sm px-3 py-1 rounded-full mt-2">Fire</span>
-        <div class="flex gap-2 mt-4">
-          <button onclick="copyNumber('999')" class="flex-1 border rounded-lg py-2">📋 Copy</button>
-          <button onclick="makeCall('Fire Service Number','999')" 
-                  class="flex-1 bg-green-500 text-white rounded-lg py-2">📞 Call</button>
-        </div>
-      </div>
+        const history = document.getElementById("callHistory");
+        const time = new Date().toLocaleTimeString();
+        const entry = document.createElement("div");
+        entry.className =
+          "flex justify-between items-center bg-gray-100 p-2 rounded-lg";
+        entry.innerHTML = `<div><p class="font-semibold">${service}</p><p class="text-gray-600 text-sm">${number}</p></div><span class="text-xs text-gray-500">${time}</span>`;
+        history.prepend(entry);
+      }
 
-      <!-- Ambulance -->
-      <div class="bg-white shadow rounded-2xl p-4 relative">
-        <button onclick="toggleFavorite(this)" 
-                class="absolute top-3 right-3 text-gray-400 hover:text-red-500">❤️</button>
-        <div class="flex items-center gap-3">
-          <div class="bg-green-100 p-3 rounded-xl"><img src="assets/ambulance.png" class="w-7 h-7" alt=""></div>
-          <div>
-            <h2 class="font-bold">Ambulance Service</h2>
-            <p class="text-gray-500 text-sm">Ambulance</p>
-          </div>
-        </div>
-        <p class="text-2xl font-bold mt-3">1994-999999</p>
-        <span class="inline-block bg-gray-200 text-gray-600 text-sm px-3 py-1 rounded-full mt-2">Health</span>
-        <div class="flex gap-2 mt-4">
-          <button onclick="copyNumber('1994-999999')" class="flex-1 border rounded-lg py-2">📋 Copy</button>
-          <button onclick="makeCall('Ambulance Service','1994-999999')" 
-                  class="flex-1 bg-green-500 text-white rounded-lg py-2">📞 Call</button>
-        </div>
-      </div>
-
-      <!-- Women & Child -->
-      <div class="bg-white shadow rounded-2xl p-4 relative">
-        <button onclick="toggleFavorite(this)" 
-                class="absolute top-3 right-3 text-gray-400 hover:text-red-500">❤️</button>
-        <div class="flex items-center gap-3">
-          <div class="bg-pink-200 p-3 rounded-xl"><img src="assets/emergency.png" class="w-7 h-7" alt=""></div>
-          <div>
-            <h2 class="font-bold">Women & Child Helpline</h2>
-            <p class="text-gray-500 text-sm">Helpline</p>
-          </div>
-        </div>
-        <p class="text-2xl font-bold mt-3">109</p>
-        <span class="inline-block bg-gray-200 text-gray-600 text-sm px-3 py-1 rounded-full mt-2">Help</span>
-        <div class="flex gap-2 mt-4">
-          <button onclick="copyNumber('109')" class="flex-1 border rounded-lg py-2">📋 Copy</button>
-          <button onclick="makeCall('Women & Child Helpline','109')" 
-                  class="flex-1 bg-green-500 text-white rounded-lg py-2">📞 Call</button>
-        </div>
-      </div>
-
-      <!-- Anti-Corruption -->
-      <div class="bg-white shadow rounded-2xl p-4 relative">
-        <button onclick="toggleFavorite(this)" 
-                class="absolute top-3 right-3 text-gray-400 hover:text-red-500">❤️</button>
-        <div class="flex items-center gap-3">
-          <div class="bg-yellow-100 p-3 rounded-xl"><img src="assets/emergency.png" class="w-7 h-7" alt=""></div>
-          <div>
-            <h2 class="font-bold">Anti-Corruption Helpline</h2>
-            <p class="text-gray-500 text-sm">Govt.</p>
-          </div>
-        </div>
-        <p class="text-2xl font-bold mt-3">106</p>
-        <span class="inline-block bg-gray-200 text-gray-600 text-sm px-3 py-1 rounded-full mt-2">Govt.</span>
-        <div class="flex gap-2 mt-4">
-          <button onclick="copyNumber('106')" class="flex-1 border rounded-lg py-2">📋 Copy</button>
-          <button onclick="makeCall('Anti-Corruption Helpline','106')" 
-                  class="flex-1 bg-green-500 text-white rounded-lg py-2">📞 Call</button>
-        </div>
-      </div>
-
-      <!-- Electricity -->
-      <div class="bg-white shadow rounded-2xl p-4 relative">
-        <button onclick="toggleFavorite(this)" 
-                class="absolute top-3 right-3 text-gray-400 hover:text-red-500">❤️</button>
-        <div class="flex items-center gap-3">
-          <div class="bg-gray-200 p-3 rounded-xl"><img src="assets/emergency.png" class="w-7 h-7" alt=""></div>
-          <div>
-            <h2 class="font-bold">Electricity Helpline</h2>
-            <p class="text-gray-500 text-sm">Outage</p>
-          </div>
-        </div>
-        <p class="text-2xl font-bold mt-3">16216</p>
-        <span class="inline-block bg-gray-200 text-gray-600 text-sm px-3 py-1 rounded-full mt-2">Electricity</span>
-        <div class="flex gap-2 mt-4">
-          <button onclick="copyNumber('16216')" class="flex-1 border rounded-lg py-2">📋 Copy</button>
-          <button onclick="makeCall('Electricity Helpline','16216')" 
-                  class="flex-1 bg-green-500 text-white rounded-lg py-2">📞 Call</button>
-        </div>
-      </div>
-
-      <!-- Brac -->
-      <div class="bg-white shadow rounded-2xl p-4 relative">
-        <button onclick="toggleFavorite(this)" 
-                class="absolute top-3 right-3 text-gray-400 hover:text-red-500">❤️</button>
-        <div class="flex items-center gap-3">
-          <div class="bg-purple-200 p-3 rounded-xl"><img src="assets/emergency.png" class="w-7 h-7" alt=""></div>
-          <div>
-            <h2 class="font-bold">Brac Helpline</h2>
-            <p class="text-gray-500 text-sm">NGO</p>
-          </div>
-        </div>
-        <p class="text-2xl font-bold mt-3">16445</p>
-        <span class="inline-block bg-gray-200 text-gray-600 text-sm px-3 py-1 rounded-full mt-2">NGO</span>
-        <div class="flex gap-2 mt-4">
-          <button onclick="copyNumber('16445')" class="flex-1 border rounded-lg py-2">📋 Copy</button>
-          <button onclick="makeCall('Brac Helpline','16445')" 
-                  class="flex-1 bg-green-500 text-white rounded-lg py-2">📞 Call</button>
-        </div>
-      </div>
-
-      <!-- Railway -->
-      <div class="bg-white shadow rounded-2xl p-4 relative">
-        <button onclick="toggleFavorite(this)" 
-                class="absolute top-3 right-3 text-gray-400 hover:text-red-500">❤️</button>
-        <div class="flex items-center gap-3">
-          <div class="bg-orange-200 p-3 rounded-xl"><img src="assets/emergency.png" class="w-7 h-7" alt=""></div>
-          <div>
-            <h2 class="font-bold">Bangladesh Railway Helpline</h2>
-            <p class="text-gray-500 text-sm">Railway</p>
-          </div>
-        </div>
-        <p class="text-2xl font-bold mt-3">163</p>
-        <span class="inline-block bg-gray-200 text-gray-600 text-sm px-3 py-1 rounded-full mt-2">Travel</span>
-        <div class="flex gap-2 mt-4">
-          <button onclick="copyNumber('163')" class="flex-1 border rounded-lg py-2">📋 Copy</button>
-          <button onclick="makeCall('Bangladesh Railway Helpline','163')" 
-                  class="flex-1 bg-green-500 text-white rounded-lg py-2">📞 Call</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Call History Section -->
-    <div class="w-full lg:w-80 bg-white shadow rounded-2xl p-4">
-      <div class="flex justify-between items-center mb-3">
-        <h2 class="font-semibold flex items-center gap-1">⏰ Call History</h2>
-        <button onclick="clearHistory()" class="bg-green-500 text-white px-4 py-1 rounded-full">Clear</button>
-      </div>
-      <div id="callHistory" class="space-y-2 text-sm max-h-[500px] overflow-y-auto">
-        <!-- Calls appear here -->
-      </div>
-    </div>
-
-  </div>
-
-  <!-- JS -->
-  <script>
-  // Heart counter
-  let favCount = 0;
-  let copyCount = 0;
-
-  function toggleFavorite(btn) {
-    const isActive = btn.classList.contains("text-red-500");
-    if (isActive) {
-      favCount--;
-      btn.classList.remove("text-red-500");
-      btn.classList.add("text-gray-400");
-    } else {
-      favCount++;
-      btn.classList.add("text-red-500");
-      btn.classList.remove("text-gray-400");
-    }
-    document.getElementById("heartCount").textContent = favCount;
-  }
-
-  // Copy number
-  function copyNumber(num) {
-    navigator.clipboard.writeText(num);
-    copyCount++;
-    alert("Number copied: " + num);
-    updateCopyCount();
-  }
-
-  function updateCopyCount() {
-    const button = document.querySelector('.bg-green-500.text-white.px-4.py-1.rounded-full');
-    if (button) {
-      button.textContent = copyCount + " Copy";
-    }
-  }
-
-  // Call history
-  function makeCall(service, number) {
-    alert(`Calling ${service} at ${number}...`);
-
-    const history = document.getElementById("callHistory");
-    const time = new Date().toLocaleTimeString();
-    const entry = document.createElement("div");
-    entry.className = "flex justify-between items-center bg-gray-100 p-2 rounded-lg";
-    entry.innerHTML = `<div><p class="font-semibold">${service}</p><p class="text-gray-600 text-sm">${number}</p></div><span class="text-xs text-gray-500">${time}</span>`;
-    history.prepend(entry);
-  }
-
-  function clearHistory() {
-    document.getElementById("callHistory").innerHTML = "";
-  }
-</script>
-</body>
+      function clearHistory() {
+        document.getElementById("callHistory").innerHTML = "";
+      }
+    </script>
+  </body>
 </html>
